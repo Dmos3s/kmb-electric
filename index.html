@@ -871,6 +871,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () { right.classList.add('is-in'); }, 550);
     /* Safety net: if the tab was hidden and rAF was throttled, force the final state */
     setTimeout(function () {
+      gsap.killTweensOf('.hero-headline .word');
       gsap.set('.hero-headline .word', { clearProps: 'all' });
       sub.classList.add('is-in'); ctas.classList.add('is-in'); right.classList.add('is-in');
     }, 3200);
