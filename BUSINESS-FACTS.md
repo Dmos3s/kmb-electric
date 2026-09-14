@@ -38,6 +38,7 @@ Gathered 2026-09-13 while building the demo site. Everything in the site's copy 
 - Free estimates, warranties offered, credit cards accepted
 
 ## Credentials
+- Colorado Secretary of State: KMB Electric LLC, ID 20231730441, Articles of Organization filed 07/13/2023, Good Standing (checked 2026-09-13)
 - Colorado State Electrical Contractor license #102799 (Division of Professions and Occupations, active through 10-01-2026 per BuildZoom)
 - Town of Castle Rock contractor license CR26-0392, active, issued 05-04-2026
 - BuildZoom score 112, top 3 percent of 55,949 licensed Colorado contractors, quality 97th percentile
