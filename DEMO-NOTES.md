@@ -49,3 +49,12 @@ The domain is registered at GoDaddy and currently serves GoDaddy Website Builder
 - CRM: his Google reviews mention scheduling and follow-up, so a simple lead inbox plus text-back (the same Doll lead-text pattern used for Swann's Nest and Brenda) is an easy add.
 - Review funnel: a "leave us a review" link straight to his Google listing on the invoice or a thank-you text.
 - Service pages for SEO (EV chargers, hot tubs, panel upgrades) each with its own URL once the design is approved.
+
+## Lead routing (updated 2026-09-14)
+
+Every form submission now does two things:
+
+1. Email via FormSubmit: primary daniel.g.moses@gmail.com (Dan's activated hash), with `_cc: kylebashford@kmbelectric.com`, so Kyle gets the same email. Verified: the cc leg delivers without any activation on Kyle's side.
+2. Text to Kyle from Doll's line (+17194030923) via the Hermes bridge at https://sms.fusehq.cloud/kmb-lead (`kmb-lead.service`, `/opt/hermes/scripts/kmb_lead_bridge.py`, port 8095, token in `/etc/kmb-lead.env`, log `/var/lib/kmb-lead/leads.log`). Same design as the Swann's Nest bridge. `{"test": true}` routes the text to Dan instead of Kyle. The public token in the page JS only allows sending this one message to Kyle, so it is safe to be public, same as Swann's Nest.
+
+Do not submit the live form as a test unless you want Kyle to get a real email and text.
