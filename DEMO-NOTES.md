@@ -24,7 +24,7 @@ Built 2026-09-13 overnight for the Kyle Bashford demo. Everything here is what t
 
 ## Lead form
 
-The estimate form posts to FormSubmit using Dan's already-activated hash, so demo submissions land in daniel.g.moses@gmail.com with subject "KMB Electric estimate request: <service>". No Doll rule fires on that subject.
+The estimate form posts to FormSubmit using Dan's hash, so demo submissions land in daniel.g.moses@gmail.com with subject "KMB Electric estimate request: <service>". No Doll rule fires on that subject. FormSubmit activates per sending host, so the hash from Brenda's site still needed a one-time "Activate Form" click for dmos3s.github.io (done during the build, see the session summary). Any new host, including kmbelectric.com at go-live, needs the same one-time activation.
 
 To route leads to Kyle at go-live: change `ENDPOINT` in `index.html` to `https://formsubmit.co/ajax/kylebashford@kmbelectric.com`, submit once, and have Kyle click the activation email. Or point it at whatever CRM he picks later.
 
