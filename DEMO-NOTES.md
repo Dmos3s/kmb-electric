@@ -58,3 +58,11 @@ Every form submission now does two things:
 2. Text to Kyle from Doll's line (+17194030923) via the Hermes bridge at https://sms.fusehq.cloud/kmb-lead (`kmb-lead.service`, `/opt/hermes/scripts/kmb_lead_bridge.py`, port 8095, token in `/etc/kmb-lead.env`, log `/var/lib/kmb-lead/leads.log`). Same design as the Swann's Nest bridge. `{"test": true}` routes the text to Dan instead of Kyle. The public token in the page JS only allows sending this one message to Kyle, so it is safe to be public, same as Swann's Nest.
 
 Do not submit the live form as a test unless you want Kyle to get a real email and text.
+
+## Text-us bubble (added 2026-09-14)
+
+A "Text us" bubble on every page (desktop: bottom-right pill; design B on phones: the bottom bar's Text button) asks for name, cell and the question. Submit POSTs to the Hermes bridge with `kind: "text"`, and Kyle gets a text from Doll's line with the visitor's cell so he replies straight from his phone. A copy also goes by email (subject "KMB Electric text request: <name>", cc Kyle). This is the web-to-text model: the back and forth happens as normal texting on the customer's phone, not in the browser.
+
+Test mode: open either site with `?test=1` on the URL (for example https://dmos3s.github.io/kmb-electric-b/?test=1). Then the bubble and the estimate form text DAN instead of Kyle, tagged [TEST], and the email is not cc'd to Kyle. Use that to demo it without pinging Kyle.
+
+Pitched upgrade, not built: a dedicated KMB Telnyx number relayed through Hermes so replies come from a business number instead of Kyle's personal cell. Needs Dan to buy the number and add it to the A2P registration.
