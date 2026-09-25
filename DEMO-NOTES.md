@@ -11,12 +11,6 @@ Built 2026-09-13 overnight for the Kyle Bashford demo. Everything here is what t
 - 5.0 rating on Google (11 reviews), Angi and HomeAdvisor (2 reviews each).
 - All five testimonials are real reviews, quoted from Google and Angi with names as shown publicly. Two Google reviews were truncated on the listing, so they end at the last full sentence.
 
-## Client revisions confirmed 2026-09-25
-
-- Use the dark version.
-- Present commercial work only as small scale commercial tenant finishes.
-- Do not advertise commercial EV charging or routine service calls in Castle Rock.
-- Avoid time-sensitive promises and exact permit counts in marketing copy.
 - The logo is his actual shield-and-bolt PNG from the old site.
 - Services list is the union of his old site, his Angi profile, and the work types in his permit history (400 amp services, generators, hot tubs, EV chargers, kitchen and basement remodels, ADUs).
 - "Melissa" is named in a Google review as his scheduler. If that is wrong, remove her from the CTA and form copy.
@@ -73,3 +67,11 @@ A "Text us" bubble on every page (desktop: bottom-right pill; design B on phones
 Test mode: open either site with `?test=1` on the URL (for example https://dmos3s.github.io/kmb-electric-b/?test=1). Then the bubble and the estimate form text DAN instead of Kyle, tagged [TEST], and the email is not cc'd to Kyle. Use that to demo it without pinging Kyle.
 
 Pitched upgrade, not built: a dedicated KMB Telnyx number relayed through Hermes so replies come from a business number instead of Kyle's personal cell. Needs Dan to buy the number and add it to the A2P registration.
+
+## Client revisions confirmed 2026-09-25
+
+- Use the dark version.
+- Present commercial work only as small scale commercial tenant finishes.
+- Do not advertise commercial EV charging or routine service calls in Castle Rock.
+- Avoid time-sensitive promises and exact permit counts (trust bar now says 100+, refresh from BuildZoom if Kyle wants the exact number) in marketing copy.
+- Hours Mon to Fri only. ZIP 80923. Kyle wants the KMB business texting number, alerts to Melissa too, and asked what happens on calls to it.
