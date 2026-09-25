@@ -4,12 +4,19 @@ Built 2026-09-13 overnight for the Kyle Bashford demo. Everything here is what t
 
 ## What is real (verified from public listings)
 
-- Phone 719-963-5191, email kylebashford@kmbelectric.com, Colorado Springs 80922, veteran owned, military discounts. All from his current GoDaddy site and Google listing.
-- Hours Mon to Fri 7 to 5, Sat 9 to 3, Sun closed (Angi/HomeAdvisor listing; his old site left Saturday blank, confirm with Kyle).
+- Phone 719-963-5191, email kylebashford@kmbelectric.com, Colorado Springs 80923, veteran owned, military discounts. ZIP confirmed by Kyle 2026-09-25; other details came from his current GoDaddy site and Google listing.
+- Hours Mon to Fri 7 to 5, Saturday and Sunday closed (confirmed by Kyle 2026-09-25).
 - Colorado Electrical Contractor license #102799 and Castle Rock CR26-0392 (BuildZoom license verification, June and August 2026).
 - 118 permitted projects over three years, top 3 percent of Colorado contractors, BuildZoom score 112 of 55,949 (BuildZoom permit data).
 - 5.0 rating on Google (11 reviews), Angi and HomeAdvisor (2 reviews each).
 - All five testimonials are real reviews, quoted from Google and Angi with names as shown publicly. Two Google reviews were truncated on the listing, so they end at the last full sentence.
+
+## Client revisions confirmed 2026-09-25
+
+- Use the dark version.
+- Present commercial work only as small scale commercial tenant finishes.
+- Do not advertise commercial EV charging or routine service calls in Castle Rock.
+- Avoid time-sensitive promises and exact permit counts in marketing copy.
 - The logo is his actual shield-and-bolt PNG from the old site.
 - Services list is the union of his old site, his Angi profile, and the work types in his permit history (400 amp services, generators, hot tubs, EV chargers, kitchen and basement remodels, ADUs).
 - "Melissa" is named in a Google review as his scheduler. If that is wrong, remove her from the CTA and form copy.

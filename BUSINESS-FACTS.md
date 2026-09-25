@@ -14,20 +14,20 @@ Gathered 2026-09-13 while building the demo site. Everything in the site's copy 
 - Phone: 719-963-5191 (call or text)
 - Email: kylebashford@kmbelectric.com
 - Website / domain: kmbelectric.com (registered at GoDaddy, hosted on GoDaddy Website Builder; Kyle keeps the domain)
-- Location: Colorado Springs, CO 80922
+- Public service location: Colorado Springs, CO 80923 (confirmed by Kyle 2026-09-25)
 - Mailing address on listings: 7636 Penway Hts, Colorado Springs, CO 80922 (looks residential, not shown on the site)
 
 ## Hours
 - Monday to Friday: 7:00 AM to 5:00 PM
-- Saturday: 9:00 AM to 3:00 PM (Angi / HomeAdvisor listing; the GoDaddy site said closed)
+- Saturday: Closed (confirmed by Kyle 2026-09-25)
 - Sunday: Closed
 
 ## Services (union of old site, Angi, HomeAdvisor, and permit records)
 - New construction custom homes
-- Commercial electrical and tenant finishes
+- Small scale commercial tenant finishes only (confirmed by Kyle 2026-09-25; KMB is not pursuing broad commercial work)
 - Service and panel upgrades (permits show 200 and 400 amp services)
 - Hot tub wiring
-- Electric vehicle charger installation (residential and commercial)
+- Residential electric vehicle charger installation (Kyle asked to remove the commercial charging claim 2026-09-25)
 - Residential remodels, additions, basement finishes, kitchens
 - Detached garages and workshops, sub panels
 - Generator and automatic transfer switch installs
@@ -44,6 +44,7 @@ Gathered 2026-09-13 while building the demo site. Everything in the site's copy 
 - BuildZoom score 112, top 3 percent of 55,949 licensed Colorado contractors, quality 97th percentile
 - Permit history (BuildZoom): 6 projects in 2023, 63 in 2024, 49 in 2025, 118 permitted projects over 3 years, 113 electrical, 54 home additions, 4 new constructions
 - Permit cities: Colorado Springs, Monument, Woodland Park, Calhan, Denver, Castle Rock
+- Service-area note: Castle Rock is historical permit/license territory, but KMB does not take routine service calls there (confirmed by Kyle 2026-09-25).
 
 ## Reviews
 - Google Business Profile: 5.0 stars, 11 reviews, 37 photos, "Identifies as veteran-owned"
