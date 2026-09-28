@@ -62,7 +62,7 @@ Do not submit the live form as a test unless you want Kyle to get a real email a
 
 Delivery gotcha (2026-09-28): the bridge logs SENT when Telnyx accepts the message, not when it is delivered. Texts that carried the Number Lookup blurb (carrier, "listed as" name, city) were silently dropped by Telnyx's spam filter (error 40002). The bridge now sends only a landline warning, greets Kyle and Melissa by name, says "your website" instead of the bare domain, and staggers the two sends. To prove delivery, pull the Telnyx detail records (see the Hermes memory note telnyx-lookup-blurb-spam-trap).
 
-Search: Google Search Console property https://kmbelectric.com/ is verified under Dan's Google account (HTML file), sitemap submitted 2026-09-28, homepage indexing requested. Bing Webmaster still needs Dan to sign in and import from Search Console.
+Search: Google Search Console property https://kmbelectric.com/ is verified under Dan's Google account (HTML file), sitemap submitted 2026-09-28, homepage indexing requested. Bing Webmaster: site verified via BingSiteAuth.xml under Dan's account and sitemap submitted 2026-09-28.
 
 ## Text-us bubble (added 2026-09-14)
 
