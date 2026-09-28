@@ -56,9 +56,13 @@ The domain is registered at GoDaddy and currently serves GoDaddy Website Builder
 Every form submission now does two things:
 
 1. Email via FormSubmit: primary daniel.g.moses@gmail.com (Dan's activated hash), with `_cc: kylebashford@kmbelectric.com`, so Kyle gets the same email. Verified: the cc leg delivers without any activation on Kyle's side.
-2. Text to Kyle from Doll's line (+17194030923) via the Hermes bridge at https://sms.fusehq.cloud/kmb-lead (`kmb-lead.service`, `/opt/hermes/scripts/kmb_lead_bridge.py`, port 8095, token in `/etc/kmb-lead.env`, log `/var/lib/kmb-lead/leads.log`). Same design as the Swann's Nest bridge. `{"test": true}` routes the text to Dan instead of Kyle. The public token in the page JS only allows sending this one message to Kyle, so it is safe to be public, same as Swann's Nest.
+2. Text to Kyle and Melissa from Doll's line (+17194030923) via the Hermes bridge at https://sms.fusehq.cloud/kmb-lead (`kmb-lead.service`, `/opt/hermes/scripts/kmb_lead_bridge.py`, port 8095, token in `/etc/kmb-lead.env`, log `/var/lib/kmb-lead/leads.log`). Same design as the Swann's Nest bridge. `{"test": true}` routes the text to Dan instead of Kyle. The public token in the page JS only allows sending this one message to Kyle, so it is safe to be public, same as Swann's Nest.
 
 Do not submit the live form as a test unless you want Kyle to get a real email and text.
+
+Delivery gotcha (2026-09-28): the bridge logs SENT when Telnyx accepts the message, not when it is delivered. Texts that carried the Number Lookup blurb (carrier, "listed as" name, city) were silently dropped by Telnyx's spam filter (error 40002). The bridge now sends only a landline warning, greets Kyle and Melissa by name, says "your website" instead of the bare domain, and staggers the two sends. To prove delivery, pull the Telnyx detail records (see the Hermes memory note telnyx-lookup-blurb-spam-trap).
+
+Search: Google Search Console property https://kmbelectric.com/ is verified under Dan's Google account (HTML file), sitemap submitted 2026-09-28, homepage indexing requested. Bing Webmaster still needs Dan to sign in and import from Search Console.
 
 ## Text-us bubble (added 2026-09-14)
 
