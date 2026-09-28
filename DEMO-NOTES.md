@@ -32,8 +32,8 @@ To route leads to Kyle at go-live: change `ENDPOINT` in `index.html` to `https:/
 ## Hosting
 
 - Source: GitHub `Dmos3s/kmb-electric` (public, static, no secrets).
-- Demo URL: GitHub Pages at https://dmos3s.github.io/kmb-electric/ (and a Vercel temporary URL if that step worked, see the session summary).
-- Go-live options once Kyle signs: Vercel or Lovable passthrough like Swann's Nest, then point kmbelectric.com at it.
+- LIVE since 2026-09-28 at https://kmbelectric.com (GitHub Pages custom domain, HTTPS enforced). www and the old dmos3s.github.io/kmb-electric URL redirect to it. FormSubmit is activated for the kmbelectric.com host.
+- Cutover record and DNS values are in CUTOVER.md. GoDaddy still holds the domain (Kyle is the registrant); Microsoft 365 email is billed by Microsoft directly and was not touched.
 
 ## Domain (Kyle keeps kmbelectric.com)
 
@@ -64,7 +64,7 @@ Do not submit the live form as a test unless you want Kyle to get a real email a
 
 A "Text us" bubble on every page (desktop: bottom-right pill; design B on phones: the bottom bar's Text button) asks for name, cell and the question. Submit POSTs to the Hermes bridge with `kind: "text"`, and Kyle gets a text from Doll's line with the visitor's cell so he replies straight from his phone. A copy also goes by email (subject "KMB Electric text request: <name>", cc Kyle). This is the web-to-text model: the back and forth happens as normal texting on the customer's phone, not in the browser.
 
-Test mode: open either site with `?test=1` on the URL (for example https://dmos3s.github.io/kmb-electric-b/?test=1). Then the bubble and the estimate form text DAN instead of Kyle, tagged [TEST], and the email is not cc'd to Kyle. Use that to demo it without pinging Kyle.
+Test mode: open either site with `?test=1` on the URL (for example https://kmbelectric.com/?test=1). Then the bubble and the estimate form text DAN instead of Kyle and Melissa, tagged [TEST], and the email is not cc'd to Kyle. Use that to demo it without pinging Kyle. Until 2026-09-28 only the bubble honored the flag; the estimate form always texted Kyle and Melissa, which is how they got the "Fable go-live check" text at 11:30 on cutover day. Fixed in commit 3f025ab and verified with an intercepted Playwright run on the live domain (test=1 sends test:true and no _cc; plain URL sends test:false with the cc). GitHub Pages sits behind a CDN with a 10 minute cache, so verify a fresh deploy with a cache-busting query string.
 
 Pitched upgrade, not built: a dedicated KMB Telnyx number relayed through Hermes so replies come from a business number instead of Kyle's personal cell. Needs Dan to buy the number and add it to the A2P registration.
 
