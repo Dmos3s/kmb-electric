@@ -995,6 +995,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('estimate-form');
   var ENDPOINT = 'https://formsubmit.co/ajax/c103a0fb4189d09b76abc02c6d298964';
   var LEAD_TEXT = 'https://sms.fusehq.cloud/kmb-lead';
+  var TEST = /[?&#]test=1\b/.test(location.href);   /* ?test=1 routes texts to Dan and drops the cc */
   var LEAD_TOKEN = '4FC0a52AXd73n5iACmKz6kjpcCkoYMX7';
   function showSuccess() {
     form.innerHTML = '<div class="success-msg"><p class="big">Got it. We will be in touch during business hours.</p><p>Check your phone, we usually call or text first. Need it faster? Call <a href="tel:+17199635191" style="color:#A8791F;font-weight:600">719-963-5191</a>.</p></div>';
@@ -1010,11 +1011,12 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.disabled = true; btn.textContent = 'Sending...';
     var msg = form.message.value.trim();
     var payload = { name: name, phone: phone, service: service, message: msg,
-      _subject: 'KMB Electric estimate request: ' + service, _template: 'table', _captcha: 'false', _cc: 'kylebashford@kmbelectric.com' };
+      _subject: 'KMB Electric estimate request: ' + service, _template: 'table', _captcha: 'false' };
+    if (!TEST) payload._cc = 'kylebashford@kmbelectric.com';
     /* Instant text to Kyle via Hermes (fire-and-forget; email goes out via FormSubmit). */
     try {
       fetch(LEAD_TEXT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
-        body: JSON.stringify({ token: LEAD_TOKEN, name: name, phone: phone, service: service, message: msg }) }).catch(function () {});
+        body: JSON.stringify({ token: LEAD_TOKEN, name: name, phone: phone, service: service, message: msg, test: TEST }) }).catch(function () {});
     } catch (err) {}
     fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
       .then(function () { showSuccess(); })
@@ -1024,7 +1026,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* Text-us bubble: visitor leaves a cell number, Kyle gets a text with it and replies from his phone. */
   (function () {
-    var TEST = /[?&#]test=1\b/.test(location.href);
     var fab = document.getElementById('tw-open'), panel = document.getElementById('tw-panel'), closeBtn = document.getElementById('tw-close'), tf = document.getElementById('tw-form');
     if (!fab || !panel || !tf) return;
     function twOpen() { panel.hidden = false; fab.setAttribute('aria-expanded', 'true'); setTimeout(function () { var f = tf.querySelector('[name=name]'); if (f) f.focus(); }, 60); }
