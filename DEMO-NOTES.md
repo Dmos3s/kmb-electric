@@ -78,3 +78,7 @@ Pitched upgrade, not built: a dedicated KMB Telnyx number relayed through Hermes
 - Do not advertise commercial EV charging or routine service calls in Castle Rock.
 - Avoid time-sensitive promises and exact permit counts (trust bar now says 100+, refresh from BuildZoom if Kyle wants the exact number) in marketing copy.
 - Hours Mon to Fri only. ZIP 80923. Kyle wants the KMB business texting number, alerts to Melissa too, and asked what happens on calls to it.
+
+## Layout gate for the runner (2026-10-14)
+
+Any change that touches CSS, photos, or the Recent Work collage must pass `/home/danmoses/.local/bin/kmb_shot.py index.html --out /tmp/kmbshot` on the runner box (Playwright in `~/.venvs/pw`). It renders phone, tablet, laptop and desktop, writes a PNG per width, and fails with OVERLAP lines if collage tiles overlap. The runner is told to open the PNGs and look before committing. Added after the first real-photo swap shipped with the generator tile covering the house tile's caption. The collage stagger is now `align-self:end` on the second tile, no negative margins.
