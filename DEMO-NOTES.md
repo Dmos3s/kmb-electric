@@ -17,8 +17,7 @@ Built 2026-09-13 overnight for the Kyle Bashford demo. Everything here is what t
 
 ## What is sample or assumed (tell Kyle)
 
-- Photos are stock (Unsplash) placeholders. Kyle has 37 photos on his Google listing; swap those in, especially the four "recent work" collage tiles, which are captioned with job types from his permit record but are not photos of those jobs.
-- The four collage captions name real permit cities and job types (Denver 400 amp, Colorado Springs EV, Old Colorado City kitchen, Monument generator) but the photos are not his.
+- The recent-work collage (now five tiles) and the featured Service & Panel Upgrades card use real KMB job photos sent by Melissa 2026-10-14 (soffit lighting, boom lift crew, standby generator, panel and conduit, service fleet; crew members are KMB staff and approved for the public site). Captions are generic job types with no cities, since Melissa did not supply locations. Only the hero background is still a stock Unsplash placeholder.
 - "Warranty on our workmanship" comes from his Angi profile ("Warranties: Yes"); confirm terms.
 - Facebook and Instagram footer icons point at facebook.com and instagram.com; his old site only had GoDaddy placeholders. Replace with real pages or delete.
 - Privacy policy is a plain default.

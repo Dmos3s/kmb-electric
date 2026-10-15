@@ -235,7 +235,7 @@ ul{margin:0;padding:0;list-style:none}
 .service-card .more{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:14px;font-weight:600;margin-top:20px}
 .service-card .more i{font-size:12px;margin:0;transition:transform .3s var(--ease)}
 .service-card:hover .more i{transform:translateX(4px)}
-.service-card.featured{grid-row:span 2;background:rgba(var(--gold-rgb),.14);border:1px solid rgba(var(--gold-rgb),.45);padding:42px 38px;justify-content:flex-end;min-height:520px;background-image:linear-gradient(to top,rgba(11,18,32,.96) 35%,rgba(11,18,32,.35)),url('https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=900&q=80');background-size:cover;background-position:center}
+.service-card.featured{grid-row:span 2;background:rgba(var(--gold-rgb),.14);border:1px solid rgba(var(--gold-rgb),.45);padding:42px 38px;justify-content:flex-end;min-height:520px;background-image:linear-gradient(to top,rgba(11,18,32,.96) 35%,rgba(11,18,32,.35)),url('assets/work-panel-conduit.jpg');background-size:cover;background-position:center}
 .service-card.featured::before{content:'MOST REQUESTED';position:absolute;top:22px;left:38px;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--navy);background:var(--gold);padding:6px 12px;border-radius:100px}
 .service-card.featured h3{font-size:34px}
 .service-card.featured p{font-size:16px;flex:0}
@@ -252,6 +252,7 @@ ul{margin:0;padding:0;list-style:none}
 .collage figure:nth-child(2){aspect-ratio:1/1;margin-top:40px}
 .collage figure:nth-child(3){aspect-ratio:1/1;margin-top:-40px}
 .collage figure:nth-child(4){aspect-ratio:1/1.25}
+.collage figure:nth-child(5){grid-column:1/-1;aspect-ratio:2.2/1;margin-top:0}
 .collage figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;font-size:12px;font-weight:600;color:var(--white);background:linear-gradient(to top,rgba(11,18,32,.85),transparent);letter-spacing:.02em}
 .why-content .section-label{margin-bottom:14px}
 .why-content h2{font-size:46px;color:var(--navy);line-height:1.12;margin-bottom:18px}
@@ -616,10 +617,11 @@ ul{margin:0;padding:0;list-style:none}
 <section class="why" id="why">
   <div class="container why-grid">
     <div class="collage" data-aos="fade-right">
-      <figure style="background-image:url('https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=700&q=80'),linear-gradient(135deg,var(--navy-3),var(--gold-deep))"><figcaption>400 amp service upgrade, Denver</figcaption></figure>
-      <figure style="background-image:url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700&q=80'),linear-gradient(135deg,var(--navy-3),var(--gold-deep))"><figcaption>Level 2 EV charger, Colorado Springs</figcaption></figure>
-      <figure style="background-image:url('https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=700&q=80'),linear-gradient(135deg,var(--navy-3),var(--gold-deep))"><figcaption>Kitchen remodel circuits, Old Colorado City</figcaption></figure>
-      <figure style="background-image:url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=700&q=80'),linear-gradient(135deg,var(--navy-3),var(--gold-deep))"><figcaption>Generator and transfer switch, Monument</figcaption></figure>
+      <figure role="img" aria-label="Stone and stucco home exterior with new soffit and accent lighting along the gable and roofline" style="background-image:url('assets/work-soffit-lighting.jpg'),linear-gradient(135deg,var(--navy-3),var(--gold-deep));background-position:center 40%"><figcaption>Exterior soffit and accent lighting</figcaption></figure>
+      <figure role="img" aria-label="Two KMB crew members in hard hats and safety vests working from a boom lift in a residential development" style="background-image:url('assets/work-boom-lift.jpg'),linear-gradient(135deg,var(--navy-3),var(--gold-deep));background-position:center 55%"><figcaption>Elevated exterior electrical work</figcaption></figure>
+      <figure role="img" aria-label="Generac standby generator on a concrete pad beside a solar powered control cabinet in an open field" style="background-image:url('assets/work-generator-install.jpg'),linear-gradient(135deg,var(--navy-3),var(--gold-deep));background-position:center 62%"><figcaption>Standby generator installation</figcaption></figure>
+      <figure role="img" aria-label="Open breaker panel with metal conduit runs in an unfinished mechanical room" style="background-image:url('assets/work-panel-conduit.jpg'),linear-gradient(135deg,var(--navy-3),var(--gold-deep))"><figcaption>Electrical panel and conduit work</figcaption></figure>
+      <figure role="img" aria-label="Three KMB service vans parked in front of a red barn workshop at a rural job site" style="background-image:url('assets/work-service-fleet.jpg'),linear-gradient(135deg,var(--navy-3),var(--gold-deep));background-position:center 58%"><figcaption>The KMB service fleet on site</figcaption></figure>
     </div>
     <div class="why-content">
       <span class="section-label">Why Choose KMB</span>
