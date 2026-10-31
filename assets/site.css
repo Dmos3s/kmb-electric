@@ -146,7 +146,7 @@ ul{margin:0;padding:0;list-style:none}
 .service-card .more{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:14px;font-weight:600;margin-top:20px}
 .service-card .more i{font-size:12px;margin:0;transition:transform .3s var(--ease)}
 .service-card:hover .more i{transform:translateX(4px)}
-.service-card.featured{grid-row:span 2;background:rgba(var(--gold-rgb),.14);border:1px solid rgba(var(--gold-rgb),.45);padding:42px 38px;justify-content:flex-end;min-height:520px;background-image:linear-gradient(to top,rgba(11,18,32,.96) 35%,rgba(11,18,32,.35)),url('assets/work-panel-conduit.jpg');background-size:cover;background-position:center}
+.service-card.featured{grid-row:span 2;background:rgba(var(--gold-rgb),.14);border:1px solid rgba(var(--gold-rgb),.45);padding:42px 38px;justify-content:flex-end;min-height:520px;background-image:linear-gradient(to top,rgba(11,18,32,.96) 35%,rgba(11,18,32,.35)),url('/assets/work-panel-conduit.jpg');background-size:cover;background-position:center}
 .service-card.featured::before{content:'MOST REQUESTED';position:absolute;top:22px;left:38px;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--navy);background:var(--gold);padding:6px 12px;border-radius:100px}
 .service-card.featured h3{font-size:34px}
 .service-card.featured p{font-size:16px;flex:0}
