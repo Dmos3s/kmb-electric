@@ -143,7 +143,7 @@ FOOTER = f"""<footer class="footer">
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-<script src="/assets/site.js?v=4"></script>
+<script src="/assets/site.js?v=5"></script>
 {ANALYTICS}
 </body>
 </html>

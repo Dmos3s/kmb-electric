@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('estimate-form');
   var ENDPOINT = 'https://formsubmit.co/ajax/c103a0fb4189d09b76abc02c6d298964';
   var LEAD_TEXT = 'https://sms.fusehq.cloud/kmb-lead';
-  var TEST = /[?&#]test=1\b/.test(location.href);   /* ?test=1 routes texts to Dan and drops the cc */
+  var TEST = /[?&#]test=1\b/.test(location.href);   /* ?test=1 routes the text and the email to Dan only */
   var LEAD_TOKEN = '4FC0a52AXd73n5iACmKz6kjpcCkoYMX7';
   function showSuccess() {
     form.innerHTML = '<div class="success-msg"><p class="big">Got it. We will be in touch during business hours.</p><p>Check your phone, we usually call or text first. Need it faster? Call <a href="tel:+17199635191" style="color:#A8791F;font-weight:600">719-963-5191</a>.</p></div>';
@@ -146,14 +146,22 @@ document.addEventListener('DOMContentLoaded', function () {
     var payload = { name: name, phone: phone, service: service, message: msg,
       _subject: 'KMB Electric estimate request: ' + service, _template: 'table', _captcha: 'false' };
     if (!TEST) payload._cc = 'kylebashford@kmbelectric.com';
-    /* Instant text to Kyle via Hermes (fire-and-forget; email goes out via FormSubmit). */
-    try {
-      fetch(LEAD_TEXT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
-        body: JSON.stringify({ token: LEAD_TOKEN, name: name, phone: phone, service: service, message: msg, test: TEST }) }).catch(function () {});
-    } catch (err) {}
-    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) })
-      .then(function () { showSuccess(); })
-      .catch(function () { showSuccess(); });
+    /* One call to the FuseHQ lead bridge texts Kyle and Melissa AND emails them (2026-11-20).
+       FormSubmit is only a fallback now, used when the bridge is unreachable or reports the email
+       did not go out. It was taking 40 to 60 seconds to answer and dropping mail, which left this
+       button stuck on Sending. Never wait on it. */
+    var fellBack = false, finished = false;
+    function emailFallback() {
+      if (fellBack) return; fellBack = true;
+      try { fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, keepalive: true, body: JSON.stringify(payload) }).catch(function () {}); } catch (err) {}
+    }
+    function finish() { if (finished) return; finished = true; showSuccess(); }
+    var slow = setTimeout(function () { emailFallback(); finish(); }, 10000);
+    fetch(LEAD_TEXT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, keepalive: true,
+      body: JSON.stringify({ token: LEAD_TOKEN, name: name, phone: phone, service: service, message: msg, page: location.pathname, test: TEST }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { clearTimeout(slow); if (!j || !j.emailed) emailFallback(); finish(); })
+      .catch(function () { clearTimeout(slow); emailFallback(); finish(); });
   });
 
 
@@ -178,14 +186,16 @@ document.addEventListener('DOMContentLoaded', function () {
       var btn = document.getElementById('tw-send'); btn.disabled = true; btn.textContent = 'Sending...';
       var emailPayload = { name: name, phone: phone, message: msg, request: 'Text back requested from the website bubble', _subject: 'KMB Electric text request: ' + name, _template: 'table', _captcha: 'false' };
       if (!TEST) emailPayload._cc = 'kylebashford@kmbelectric.com';
-      fetch(LEAD_TEXT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: LEAD_TOKEN, kind: 'text', name: name, phone: phone, message: msg, test: TEST }) })
+      function bubbleEmailFallback() { try { fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, keepalive: true, body: JSON.stringify(emailPayload) }).catch(function () {}); } catch (err) {} }
+      fetch(LEAD_TEXT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ token: LEAD_TOKEN, kind: 'text', name: name, phone: phone, message: msg, page: location.pathname, test: TEST }) })
         .then(function (r) { return r.json(); })
         .then(function (j) {
           if (!j || !j.ok) throw new Error('bridge');
-          try { fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, keepalive: true, body: JSON.stringify(emailPayload) }).catch(function () {}); } catch (err) {}
+          if (!j.emailed) bubbleEmailFallback();   /* the bridge emails Kyle and Melissa itself; FormSubmit only if that leg failed */
           tf.innerHTML = '<div class="tw-done"><strong>Sent to Kyle.</strong><p>He will text you at ' + phone.replace(/[<>&]/g, '') + ' during business hours. Need it now? Call <a href="tel:+17199635191">719-963-5191</a>.</p></div>';
         })
         .catch(function () {
+          bubbleEmailFallback();   /* bridge down: at least try to get the request to Kyle by email */
           btn.disabled = false; btn.textContent = 'Send text';
           var p = tf.querySelector('.tw-fine'); if (p) p.innerHTML = '<strong style="color:#C0392B">That did not go through.</strong> Text Kyle directly at <a href="sms:+17199635191">719-963-5191</a>.';
         });

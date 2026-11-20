@@ -93,3 +93,12 @@ Any change that touches CSS, photos, or the Recent Work collage must pass `/home
 - Monthly report: `kmb-client-report.timer` on Zeus (1st of the month 09:00 MT) runs `/home/danmoses/.local/bin/kmb_monthly_report.py`, which pulls GoatCounter numbers and leads from the bridge log, has Claude write the email in Dan's voice, and hands it to Doll. Doll emails Dan for a SEND approval (skill `kmb-client-report`) before anything goes to Kyle and Melissa.
 - Runner gate: `kmb_shot.py .` now serves the repo and checks every page at four widths for overlaps, horizontal scroll and console errors.
 - Renewal: `kmb-renewal-2027.timer` drafts the next annual invoice into the FuseHQ approval queue on September 1, 2027.
+
+## Lead email path changed (November 20, 2026)
+
+FormSubmit started taking 40 to 60 seconds to answer and stopped delivering mail around November 16 (three KMB leads on 11/4, 11/16 and 11/20 produced a text but no email, and the estimate button sat on "Sending" until FormSubmit answered). The fix:
+
+- The lead bridge on Zeus (`/opt/hermes/scripts/kmb_lead_bridge.py`) now sends the lead email itself, from Doll <ai@fusehq.cloud> through the local n8n `email-send-as` webhook, to Kyle, Melissa and Dan, alongside the texts. It answers `{"ok", "texted", "emailed"}` in about a second. The full note is in the email (texts still carry the first 240 characters) and every lead is appended to `/var/lib/kmb-lead/leads.jsonl`. Log lines: `SENT ...` for texts (unchanged format, the monthly report parses it) and `EMAIL ok|FAILED ...`.
+- `assets/site.js` posts each lead to the bridge once (with the page path) and shows success as soon as the bridge answers. FormSubmit is only a fallback: it is fired, without waiting, when the bridge is unreachable, takes over 10 seconds, or reports `emailed: false`.
+- `?test=1` still routes everything to Dan only (text and email, subject prefixed [TEST]).
+- Replies to a lead email go to Doll's mailbox, the footer of the email says so.
